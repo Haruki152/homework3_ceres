@@ -281,12 +281,7 @@ int main() {
     // 参数边界约束
     problem.AddParameterBlock(initial_parameters, 4,nullptr);
     
-     // 设置参数边界: g ∈ [100, 1000], k ∈ [0.01, 1]
-     ceres::SubsetParameterization* parameterization = 
-         new ceres::SubsetParameterization(4, {2, 3});  // 只对g和k设置边界
-    
-     problem.SetParameterization(initial_parameters, parameterization);
-    
+    // 设置参数边界: g ∈ [100, 1000], k ∈ [0.01, 1]    
     // 添加边界约束
     problem.SetParameterLowerBound(initial_parameters, 2, 100.0);   // g下限
     problem.SetParameterUpperBound(initial_parameters, 2, 1000.0);  // g上限
